@@ -56,7 +56,7 @@ public class StatsService {
         long salesAverage = getSalesAverage(sales);
 
         for (long sale : sales) {
-            if (sale < salesAverage) {
+            if (sale > salesAverage) {
                 monthsOverAverage++;
             }
         }
