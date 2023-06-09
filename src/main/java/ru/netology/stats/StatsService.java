@@ -39,25 +39,23 @@ public class StatsService {
         return minMonth + 1; // месяца нумеруются с 1, а индексы массива с 0, нужно сдвинуть ответ на 1
     }
 
-    public long getMonthsUnderAverage(long[] sale) {
-        long average = getSalesAverage(sale);
-        long monthsUnderAverage = 0;
+    public int getMonthsUnderAverage(long[] sales) {
+        int monthsUnderAverage = 0;
 
-        for (long j : sale) {
-            if (j < average) {
-                monthsUnderAverage = monthsUnderAverage + 1;
+        for (long sale : sales) {
+            if (sale < getSalesAverage(sales)) {
+                monthsUnderAverage++;
             }
         }
         return monthsUnderAverage;
     }
 
-    public long getMonthsOverAverage(long[] sale) {
-        long average = getSalesAverage(sale);
-        long monthsOverAverage = 0;
+    public int getMonthsOverAverage(long[] sales) {
+        int monthsOverAverage = 0;
 
-        for (long j : sale) {
-            if (j < average) {
-                monthsOverAverage = monthsOverAverage + 1;
+        for (long sale : sales) {
+            if (sale < getSalesAverage(sales)) {
+                monthsOverAverage++;
             }
         }
         return monthsOverAverage;
