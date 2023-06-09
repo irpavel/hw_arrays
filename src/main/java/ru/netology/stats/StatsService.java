@@ -41,9 +41,10 @@ public class StatsService {
 
     public int getMonthsUnderAverage(long[] sales) {
         int monthsUnderAverage = 0;
+        long salesAverage = getSalesAverage(sales);
 
         for (long sale : sales) {
-            if (sale < getSalesAverage(sales)) {
+            if (sale < salesAverage) {
                 monthsUnderAverage++;
             }
         }
@@ -52,9 +53,10 @@ public class StatsService {
 
     public int getMonthsOverAverage(long[] sales) {
         int monthsOverAverage = 0;
+        long salesAverage = getSalesAverage(sales);
 
         for (long sale : sales) {
-            if (sale < getSalesAverage(sales)) {
+            if (sale < salesAverage) {
                 monthsOverAverage++;
             }
         }
