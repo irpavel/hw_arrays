@@ -1,20 +1,21 @@
 package ru.netology.stats;
 
-import java.util.Arrays;
-
 public class StatsService {
-    public int getSalesSum(int[] sales) {
-
-        return Arrays.stream(sales).sum();
+    public long getSalesSum(long[] sales) {
+        long salesSum = 0;
+        for (long sale : sales) {
+            salesSum += sale;
+        }
+        return salesSum;
     }
 
-    public int getSalesAverage(int[] sales) {
+    public long getSalesAverage(long[] sales) {
 
         return getSalesSum(sales) / sales.length;
     }
 
 
-    public int getMonthSalesMax(int[] sales) {
+    public int getMonthSalesMax(long[] sales) {
         int maxMonth = 0; // номер месяца с максимальными продажами среди просмотренных ранее
 
         for (int i = 0; i < sales.length; i++) {
@@ -26,7 +27,7 @@ public class StatsService {
         return maxMonth + 1; // месяца нумеруются с 1, а индексы массива с 0, нужно сдвинуть ответ на 1
     }
 
-    public int getMonthSalesMin(int[] sales) {
+    public int getMonthSalesMin(long[] sales) {
         int minMonth = 0; // номер месяца с минимальными продажами среди просмотренных ранее
 
         for (int i = 0; i < sales.length; i++) {
@@ -38,25 +39,24 @@ public class StatsService {
         return minMonth + 1; // месяца нумеруются с 1, а индексы массива с 0, нужно сдвинуть ответ на 1
     }
 
-    public int getMonthsUnderAverage(int[] sale) {
-        int average = getSalesAverage(sale);
-        int monthsUnderAverage = 0;
+    public long getMonthsUnderAverage(long[] sale) {
+        long average = getSalesAverage(sale);
+        long monthsUnderAverage = 0;
 
-        for (int i = 0; i < sale.length; i++) {
-            if (sale[i] < average) {
+        for (long j : sale) {
+            if (j < average) {
                 monthsUnderAverage = monthsUnderAverage + 1;
             }
         }
         return monthsUnderAverage;
     }
 
-    public int getMonthsOverAverage(int[] sale) {
-        int average = getSalesAverage(sale);
-        int monthsOverAverage = 0;
+    public long getMonthsOverAverage(long[] sale) {
+        long average = getSalesAverage(sale);
+        long monthsOverAverage = 0;
 
-        for (int i = 0; i < sale.length; i++) {
-
-            if (sale[i] < average) {
+        for (long j : sale) {
+            if (j < average) {
                 monthsOverAverage = monthsOverAverage + 1;
             }
         }

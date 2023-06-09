@@ -1,17 +1,15 @@
 import ru.netology.stats.StatsService;
 
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
         StatsService service = new StatsService();
-        int [] sales = { 8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18 };
-        int sum = service.getSalesSum(sales);
-        int average = service.getSalesAverage(sales);
-        int salesMax = service.getMonthSalesMax(sales);
-        int salesMin = service.getMonthSalesMin(sales);
-        int monthUnderAverage = service.getMonthsUnderAverage(sales);
-        int monthOverAverage = service.getMonthsOverAverage(sales);
+        long [] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long sum = service.getSalesSum(sales);
+        long average = service.getSalesAverage(sales);
+        long salesMax = service.getMonthSalesMax(sales);
+        long salesMin = service.getMonthSalesMin(sales);
+        long monthUnderAverage = service.getMonthsUnderAverage(sales);
+        long monthOverAverage = service.getMonthsOverAverage(sales);
 
         System.out.println("Продажи за год " + sum);
         System.out.println("В среднем продажи в месяц " + average);
